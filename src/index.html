@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Éditeur HTML</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body data-editor-name="body">
+    <main>
+      <h1 data-editor-name="h1">Un titre simple</h1>
+      <p data-editor-name="p">
+        Ceci est un paragraphe. Sélectionnez un élément pour modifier ses attributs
+        depuis la barre latérale.
+      </p>
+    </main>
+
+    <aside aria-label="Éditeur d’attributs">
+      <header>
+        <span class="status-dot" aria-hidden="true"></span>
+        <strong>Éditeur HTML</strong>
+      </header>
+
+      <div class="element-list" role="list" aria-label="Éléments modifiables">
+        <button type="button" data-target="body">
+          <code>&lt;body&gt;</code>
+          <span>Page</span>
+        </button>
+        <button type="button" data-target="h1" class="is-active">
+          <code>&lt;h1&gt;</code>
+          <span>Titre</span>
+        </button>
+        <button type="button" data-target="p">
+          <code>&lt;p&gt;</code>
+          <span>Paragraphe</span>
+        </button>
+      </div>
+
+      <form>
+        <div class="selection">
+          <span>Élément sélectionné</span>
+          <code id="selection-name">&lt;h1&gt;</code>
+        </div>
+
+        <label>
+          Balise HTML
+          <select id="tag-name">
+            <option value="body">body</option>
+            <option value="h1">h1</option>
+            <option value="h2">h2</option>
+            <option value="h3">h3</option>
+            <option value="p">p</option>
+            <option value="div">div</option>
+            <option value="span">span</option>
+          </select>
+        </label>
+
+        <label>
+          Contenu
+          <textarea id="text-content" rows="4"></textarea>
+        </label>
+
+        <label>
+          className
+          <input id="class-name" type="text" placeholder="exemple ma-classe" />
+        </label>
+
+        <label>
+          id
+          <input id="element-id" type="text" placeholder="exemple mon-titre" />
+        </label>
+
+        <label>
+          aria-label
+          <input id="aria-label" type="text" placeholder="Description accessible" />
+        </label>
+      </form>
+
+      <footer>
+        <span id="save-status" role="status" aria-live="polite">Chargement…</span>
+        <button id="reset" type="button">Réinitialiser</button>
+      </footer>
+    </aside>
+  </body>
+</html>
